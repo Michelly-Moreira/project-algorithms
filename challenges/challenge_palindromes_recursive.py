@@ -1,16 +1,12 @@
 def is_palindrome_recursive(word, low_index, high_index):
-    each_letter = [*word]
-    low_index += 1
-    inverted_letters = each_letter[::-1]
-
     if not word:
         return False
-    elif low_index >= high_index:
+    each_letter = [*word]
+
+    if each_letter[low_index] == each_letter[high_index] and high_index != 0:
+        return is_palindrome_recursive(word, low_index + 1, high_index - 1)
+    elif each_letter[low_index] == each_letter[high_index] and high_index == 0:
         return True
-    elif each_letter == inverted_letters:
-        return True and is_palindrome_recursive(word, low_index, high_index)
     else:
         return False
     # raise NotImplementedError
-
-print(is_palindrome_recursive('', 0, -1))
