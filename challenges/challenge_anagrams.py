@@ -1,23 +1,27 @@
 def insertion_sort(list_word):
-    
     size_string = len(list_word)
     for letter in range(1, size_string):
         key = list_word[letter]
-        new_position = letter -1
-        while new_position >= 0 and list_word[new_position] > key:# enquanto a chave for menor remaneja a letra pra frente
-            list_word[new_position + 1] = list_word[new_position]# remaneja a letra
+        new_position = letter - 1
+        # enquanto a chave for menor remaneja a letra pra frente
+        while new_position >= 0 and list_word[new_position] > key:
+            # remaneja a letra
+            list_word[new_position + 1] = list_word[new_position]
             new_position -= 1
-            list_word[new_position + 1] = key# insere a chave na posição correta
+            # insere a chave na posição correta:
+            list_word[new_position + 1] = key
 
 
 def is_anagram(first_string, second_string):
     result_false = (first_string, second_string, False)
-    if not first_string or not second_string:# se a primeira ou a segunda string não existir
+    # se a primeira ou a segunda string não existir:
+    if not first_string or not second_string:
         return result_false
-    
-    first_word = first_string.lower()# tornando todas as letras da primeira string em minúsculas
+    # tornando todas as letras da primeira string em minúsculas
+    first_word = first_string.lower()
     # print(first_word)
-    second_word = second_string.lower()# tornando todas as letras da segunda string em minúsculas
+    # tornando todas as letras da segunda string em minúsculas
+    second_word = second_string.lower()
     # print(second_word)
 
     insertion_sort(first_word)
@@ -29,6 +33,5 @@ def is_anagram(first_string, second_string):
     else:
         return result_false
 
-    #raise NotImplementedError
-
+    #  raise NotImplementedError
 # print(is_anagram('Perda', 'Pedra'))

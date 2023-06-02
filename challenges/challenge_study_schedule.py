@@ -8,10 +8,9 @@ def study_schedule(permanence_period, target_time):
                 type(exit) != int or
                 not target_time):
             return None
-        #elif target_time >= entry and target_time <= exit:
+        # elif target_time >= entry and target_time <= exit:
         elif entry <= target_time <= exit:
             numbers_students += 1
     return numbers_students
 
     # raise NotImplementedError
-# print(study_schedule([(2, 2), (1, 2), (2, 3), (1, 5), (4, 5), (4, 5), (6, 7)], 5))
