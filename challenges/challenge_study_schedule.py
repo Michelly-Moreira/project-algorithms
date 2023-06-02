@@ -1,18 +1,17 @@
-def stratification_range(period, range_time):
-    for hour in range(period[0], period[1]+1):
-        range_time.append(hour)
-    return range_time
-
-
 def study_schedule(permanence_period, target_time):
-    range_time = []
-    for period in permanence_period:
-        if (type(period[0]) != int or
-                type(period[1]) != int or
+    numbers_students = 0
+    # print('target time =', target_time)
+    for entry, exit in permanence_period:
+        # print(entry, ' ', target_time >= entry )
+        # print(exit, ' ', target_time <= exit)
+        if (type(entry) != int or
+                type(exit) != int or
                 not target_time):
             return None
-        else:
-            stratification_range(period, range_time)
-    return range_time.count(target_time)
+        #elif target_time >= entry and target_time <= exit:
+        elif entry <= target_time <= exit:
+            numbers_students += 1
+    return numbers_students
 
     # raise NotImplementedError
+# print(study_schedule([(2, 2), (1, 2), (2, 3), (1, 5), (4, 5), (4, 5), (6, 7)], 5))

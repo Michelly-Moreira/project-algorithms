@@ -1,4 +1,5 @@
 def insertion_sort(list_word):
+    
     size_string = len(list_word)
     for letter in range(1, size_string):
         key = list_word[letter]
@@ -10,8 +11,9 @@ def insertion_sort(list_word):
 
 
 def is_anagram(first_string, second_string):
+    result_false = (first_string, second_string, False)
     if not first_string or not second_string:# se a primeira ou a segunda string não existir
-        return (first_string, second_string, False)
+        return result_false
     
     first_word = first_string.lower()# tornando todas as letras da primeira string em minúsculas
     # print(first_word)
@@ -20,11 +22,12 @@ def is_anagram(first_string, second_string):
 
     insertion_sort(first_word)
     insertion_sort(second_word)
-
+    result_true = (first_word, second_word, True)
+    result_false = (first_word, second_word, False)
     if first_word == second_word:
-        return (first_word, second_word, True)
+        return result_true
     else:
-        return (first_word, second_word, False)
+        return result_false
 
     #raise NotImplementedError
 
